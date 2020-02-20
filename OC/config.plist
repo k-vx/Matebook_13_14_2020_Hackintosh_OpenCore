@@ -8,43 +8,19 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>Disable GPU</string>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-ALS0.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable DGPU</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
 				<string>SSDT-DDGPU.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>XOSI Patch</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-OC-XOSI</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>plugin-type=1</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-PLUG.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Brightness keys</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-PS2K.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Notebook brightness</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-PNLF-CFL.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -56,15 +32,15 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>RTC Fix</string>
+				<string>Disable CNVi</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Path</key>
-				<string>SSDT-RTC_Y-AWAC_N.aml</string>
+				<string>SSDT-Disable-CNVI.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Ethernet</string>
+				<string>Fake LAN</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -72,19 +48,43 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string></string>
+				<string>OSI Patch</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-ALS0.aml</string>
+				<string>SSDT-OC-XOSI.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string></string>
+				<string>x86</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-Disable-CNVI.aml</string>
+				<string>SSDT-PLUG.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>NVRAM Support</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PMC.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PNLF</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PNLF-CFL.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Brightness key</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PS2K.aml</string>
 			</dict>
 		</array>
 		<key>Block</key>
@@ -96,6 +96,9 @@
 				<string>for_usb</string>
 				<key>Enabled</key>
 				<true/>
+				<key>OemTableId</key>
+				<data>
+				</data>
 				<key>TableLength</key>
 				<integer>12565</integer>
 				<key>TableSignature</key>
@@ -106,8 +109,13 @@
 			<dict>
 				<key>All</key>
 				<false/>
+				<key>Comment</key>
+				<string></string>
 				<key>Enabled</key>
 				<true/>
+				<key>OemTableId</key>
+				<data>
+				</data>
 				<key>TableLength</key>
 				<integer>24322</integer>
 				<key>TableSignature</key>
@@ -120,7 +128,7 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>300 Series RTC</string>
+				<string>(RTC) bug</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -134,6 +142,9 @@
 				<key>Mask</key>
 				<data>
 				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
 				<key>Replace</key>
 				<data>
 				oAqRCv8L//8=
@@ -145,6 +156,9 @@
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -162,6 +176,9 @@
 				<key>Mask</key>
 				<data>
 				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
 				<key>Replace</key>
 				<data>
 				SUdQVQ==
@@ -173,6 +190,9 @@
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -190,6 +210,9 @@
 				<key>Mask</key>
 				<data>
 				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
 				<key>Replace</key>
 				<data>
 				SU1FSQ==
@@ -201,6 +224,9 @@
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -218,6 +244,9 @@
 				<key>Mask</key>
 				<data>
 				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
 				<key>Replace</key>
 				<data>
 				WE9TSQ==
@@ -229,6 +258,9 @@
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -246,6 +278,9 @@
 				<key>Mask</key>
 				<data>
 				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
 				<key>Replace</key>
 				<data>
 				WFEwQQA=
@@ -257,6 +292,9 @@
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -274,6 +312,9 @@
 				<key>Mask</key>
 				<data>
 				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
 				<key>Replace</key>
 				<data>
 				WFEwQgA=
@@ -285,6 +326,43 @@
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>change OSID to IDOS</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				T1NJRA==
+				</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
+				<key>Replace</key>
+				<data>
+				SURPUw==
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				</data>
 			</dict>
 		</array>
 		<key>Quirks</key>
@@ -348,6 +426,8 @@
 			<true/>
 			<key>ShrinkMemoryMap</key>
 			<false/>
+			<key>SignalAppleOS</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>DeviceProperties</key>
@@ -363,7 +443,7 @@
 				<key>hda-idle-support</key>
 				<string>1</string>
 				<key>layout-id</key>
-				<integer>11</integer>
+				<integer>57</integer>
 				<key>model</key>
 				<string>Intel Sunrise Point-LP HD Audio</string>
 			</dict>
@@ -411,8 +491,6 @@
 				<string>Intel Iris Plus Graphics 655</string>
 			</dict>
 		</dict>
-		<key>Block</key>
-		<dict/>
 	</dict>
 	<key>Kernel</key>
 	<dict>
@@ -532,22 +610,6 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>VoodooHDA.kext</string>
-				<key>Comment</key>
-				<string>Sound</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/VoodooHDA</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
 				<string>VoodooPS2Controller.kext</string>
 				<key>Comment</key>
 				<string>PS2Controller</string>
@@ -644,13 +706,13 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>NVMeFix.kext</string>
+				<string>VoodooHDA.kext</string>
 				<key>Comment</key>
-				<string>NVMe</string>
+				<string>Voodoo for Audio</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/NVMeFix</string>
+				<string>Contents/MacOS/VoodooHDA</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -694,27 +756,11 @@
 				<key>BundlePath</key>
 				<string>NoTouchID.kext</string>
 				<key>Comment</key>
-				<string>VerbStub</string>
+				<string></string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/NoTouchID</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>IntelBluetoothInjector.kext</string>
-				<key>Comment</key>
-				<string>IntelBluetoothInjector</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string></string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -740,9 +786,25 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
+				<string>IntelBluetoothInjector.kext</string>
+				<key>Comment</key>
+				<string>IntelBluetoothInjector</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
 				<string>NullEthernet.kext</string>
 				<key>Comment</key>
-				<string>Fake Ethernet</string>
+				<string>Fake lEthernet</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -758,11 +820,27 @@
 				<key>BundlePath</key>
 				<string>HibernationFixup.kext</string>
 				<key>Comment</key>
-				<string>Hibernation</string>
+				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/HibernationFixup</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>NVMeFix.kext</string>
+				<key>Comment</key>
+				<string>NVMe</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/NVMeFix</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -792,20 +870,28 @@
 			<false/>
 			<key>AppleXcpmExtraMsrs</key>
 			<false/>
+			<key>AppleXcpmForceBoost</key>
+			<false/>
 			<key>CustomSMBIOSGuid</key>
 			<false/>
 			<key>DisableIoMapper</key>
 			<true/>
+			<key>DummyPowerManagement</key>
+			<false/>
 			<key>ExternalDiskIcons</key>
 			<false/>
+			<key>IncreasePciBarSize</key>
+			<true/>
 			<key>LapicKernelPanic</key>
 			<false/>
 			<key>PanicNoKextDump</key>
 			<false/>
 			<key>PowerTimeoutKernelPanic</key>
 			<false/>
-			<key>XhciPortLimit</key>
+			<key>ThirdPartyDrives</key>
 			<false/>
+			<key>XhciPortLimit</key>
+			<true/>
 		</dict>
 	</dict>
 	<key>Misc</key>
@@ -814,6 +900,8 @@
 		<array/>
 		<key>Boot</key>
 		<dict>
+			<key>BuiltinTextRenderer</key>
+			<false/>
 			<key>ConsoleBehaviourOs</key>
 			<string></string>
 			<key>ConsoleBehaviourUi</key>
@@ -821,17 +909,19 @@
 			<key>ConsoleMode</key>
 			<string></string>
 			<key>HibernateMode</key>
-			<string>auto</string>
+			<string>Auto</string>
 			<key>HideSelf</key>
-			<true/>
+			<false/>
 			<key>PollAppleHotKeys</key>
 			<true/>
 			<key>Resolution</key>
-			<string></string>
+			<string>2160x1440</string>
 			<key>ShowPicker</key>
 			<true/>
-			<key>Timeout</key>
+			<key>TakeoffDelay</key>
 			<integer>0</integer>
+			<key>Timeout</key>
+			<integer>5</integer>
 			<key>UsePicker</key>
 			<true/>
 		</dict>
@@ -849,22 +939,28 @@
 		<key>Entries</key>
 		<array>
 			<dict>
+				<key>Arguments</key>
+				<string></string>
 				<key>Comment</key>
-				<string>Windows10</string>
+				<string>Not signed for security reasons</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Name</key>
-				<string>U-Win10</string>
+				<string>CustomOS</string>
 				<key>Path</key>
-				<string>PciRoot(0x0)/Pci(0x14,0x0)/USB(0xE,0x0)/HD(1,GPT,86A2AF4A-9044-4BEF-AA82-0EB074533A3C,0x28,0x64000)/\EFI-win10\Microsoft\Boot\bootmgfw.efi</string>
+				<string>PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI</string>
 			</dict>
 		</array>
 		<key>Security</key>
 		<dict>
 			<key>AllowNvramReset</key>
 			<true/>
+			<key>AllowSetDefault</key>
+			<true/>
+			<key>AuthRestart</key>
+			<false/>
 			<key>ExposeSensitiveData</key>
-			<integer>3</integer>
+			<integer>11</integer>
 			<key>HaltLevel</key>
 			<integer>2147483648</integer>
 			<key>RequireSignature</key>
@@ -880,11 +976,11 @@
 				<key>Arguments</key>
 				<string></string>
 				<key>Comment</key>
-				<string>1</string>
+				<string>Not signed for security reasons</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Name</key>
-				<string>Shell.efi</string>
+				<string>UEFI Shell</string>
 				<key>Path</key>
 				<string>Shell.efi</string>
 			</dict>
@@ -892,13 +988,13 @@
 				<key>Arguments</key>
 				<string></string>
 				<key>Comment</key>
-				<string>3</string>
+				<string>Memory testing utility</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Name</key>
-				<string>Check MsrE2</string>
+				<string>memcheck</string>
 				<key>Path</key>
-				<string>VerifyMsrE2.efi</string>
+				<string>memcheck/memcheck.efi</string>
 			</dict>
 		</array>
 	</dict>
@@ -917,8 +1013,6 @@
 			<dict>
 				<key>boot-args</key>
 				<string>debug=0x100 slide=1</string>
-				<key>bootercfg</key>
-				<string>log=0 debug=0 level=0</string>
 				<key>csr-active-config</key>
 				<data>
 				5wMAAA==
@@ -936,6 +1030,8 @@
 		<key>Block</key>
 		<dict/>
 		<key>LegacyEnable</key>
+		<false/>
+		<key>LegacyOverwrite</key>
 		<false/>
 		<key>LegacySchema</key>
 		<dict>
@@ -964,6 +1060,8 @@
 				<string>BootOrder</string>
 			</array>
 		</dict>
+		<key>WriteFlash</key>
+		<false/>
 	</dict>
 	<key>PlatformInfo</key>
 	<dict>
@@ -974,19 +1072,19 @@
 			<key>AdviseWindows</key>
 			<true/>
 			<key>MLB</key>
-			<string>FVF9134034N0000AD</string>
+			<string>FVF0293104N00001F</string>
 			<key>ROM</key>
 			<data>
-			sF6IqJDB
+			ESIzAAAA
 			</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemProductName</key>
 			<string>MacBookPro15,4</string>
 			<key>SystemSerialNumber</key>
-			<string>FVFYHYZZL40Y</string>
+			<string>FVFD306PL40Y</string>
 			<key>SystemUUID</key>
-			<string>6F7A128E-935A-4203-A7C9-E4CCE4A890C1</string>
+			<string></string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -1006,7 +1104,6 @@
 			<string>HfsPlus.efi</string>
 			<string>ApfsDriverLoader.efi</string>
 			<string>FwRuntimeServices.efi</string>
-			<string>VirtualSmc.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
@@ -1037,6 +1134,8 @@
 			<false/>
 			<key>AppleKeyMap</key>
 			<false/>
+			<key>AppleSmcIo</key>
+			<true/>
 			<key>AppleUserInterfaceTheme</key>
 			<false/>
 			<key>ConsoleControl</key>
@@ -1048,6 +1147,8 @@
 			<key>FirmwareVolume</key>
 			<false/>
 			<key>HashServices</key>
+			<false/>
+			<key>OSInfo</key>
 			<false/>
 			<key>UnicodeCollation</key>
 			<false/>
@@ -1072,10 +1173,14 @@
 			<true/>
 			<key>ReplaceTabWithSpace</key>
 			<false/>
+			<key>RequestBootVarFallback</key>
+			<false/>
 			<key>RequestBootVarRouting</key>
 			<true/>
 			<key>SanitiseClearScreen</key>
 			<true/>
+			<key>UnblockFsConnect</key>
+			<false/>
 		</dict>
 	</dict>
 </dict>
