@@ -1,0 +1,39 @@
+
+Verbs from Linux Codec Dump File: ./codec.txt
+
+Codec: Realtek ALC256   Address: 0   DevID: 0 (0x10EC0256)
+
+   Jack   Color  Description                  Node     PinDefault             Original Verbs
+--------------------------------------------------------------------------------------------------------
+Digital Unknown  Mic at Int N/A               18 0x12   0x90A60130   0    1271c30 01271d01 01271eA6 01271f90
+Unknown Unknown  Line Out at Ext N/A          19 0x13   0x40000000   0    1371c00 01371d00 01371e00 01371f40
+ Analog Unknown  Speaker at Int N/A           20 0x14   0x90170110   0    1471c10 01471d01 01471e17 01471f90
+    1/8  Black   Speaker at Ext Rear          24 0x18   0x411111F0   0    1871cF0 01871d11 01871e11 01871f41
+    1/8  Black   Speaker at Ext Rear          25 0x19   0x411111F0   0    1971cF0 01971d11 01971e11 01971f41
+    1/8  Black   Speaker at Ext Rear	      26 0x1a   0x411111F0   0    1a71cF0 01a71d11 01a71e11 01a71f41
+    1/8  Black   Speaker at Ext Rear          27 0x1b   0x411111F0   0    1b71cF0 01b71d11 01b71e11 01b71f41
+Optical   Pink   Modem Handset at Ext N/A     29 0x1d   0x40759A05   0    1d71c05 01d71d9A 01d71e75 01d71f40
+    1/8  Black   Speaker at Ext Rear          30 0x1e   0x411111F0   0    1e71cF0 01e71d11 01e71e11 01e71f41
+    1/8  Black   HP Out at Ext Right          33 0x21   0x04211020   0    2171c20 02171d10 02171e21 02171f04
+--------------------------------------------------------------------------------------------------------
+
+
+   Jack   Color  Description                  Node     PinDefault             Modified Verbs
+--------------------------------------------------------------------------------------------------------
+Digital Unknown  Mic at Int N/A               18 0x12   0x90A60130   01271c0 01271d0 01271eA6 01271f0
+Unknown Unknown  Line Out at Ext N/A          19 0x13   0x40000000   0137110 01371d0 01371e00 01371f0
+ Analog Unknown  Speaker at Int N/A           20 0x14   0x90170110   0147120 01471d0 01471e17 01471f0
+    1/8  Black Speaker at Ext Rear            24 0x18   0x411111F0   0187130 01871d0 01871e11 01871f0
+    1/8  Black Speaker at Ext Rear            25 0x19   0x411111F0   0197140 01971d0 01971e11 01971f0
+    1/8  Black  Speaker at Ext Rear           26 0x1a   0x411111F0   01a7150 01a71d0 01a71e11 01a71f0
+    1/8  Black  Speaker at Ext Rear           27 0x1b   0x411111F0   01b7160 01b71d0 01b71e11 01b71f0
+Optical   Pink  Modem Handset at Ext N/A      29 0x1d   0x40759A05   01d7170 01d71d0 01d71e75 01d71f0
+    1/8  BlackSpeaker at Ext Rear             30 0x1e   0x411111F0   01e7180 01e71d0 01e71e11 01e71f0
+    1/8  Black  HP Out at Ext Right           33 0x21   0x04211020   0217190 02171d0 02171e21 02171f0
+--------------------------------------------------------------------------------------------------------
+
+    1/8  Black  HP Out at Ext Right           33 0x21   0x04211020   0217190 02171d0 02171e21 02171f0.    20102104
+ Analog Unknown  Speaker at Int N/A           20 0x14   0x90170110   0147120 01471d0 01471e17 01471f0	  10011790
+Digital Unknown  Mic at Int N/A               18 0x12   0x90A60130   01271c0 01271d0 01271eA6 01271f0.    3001A690
+
+
