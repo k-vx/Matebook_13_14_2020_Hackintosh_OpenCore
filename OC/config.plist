@@ -436,16 +436,14 @@
 		<dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
 			<dict>
-				<key>AAPL,slot-name</key>
-				<string>PCI-Express</string>
+				<key>device-id</key>
+				<data>
+				yJ0AAA==
+				</data>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
-				<key>hda-idle-support</key>
-				<string>1</string>
 				<key>layout-id</key>
-				<integer>57</integer>
-				<key>model</key>
-				<string>Intel Sunrise Point-LP HD Audio</string>
+				<integer>56</integer>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
@@ -550,7 +548,7 @@
 				<key>Comment</key>
 				<string>Audio patches</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AppleALC</string>
 				<key>MaxKernel</key>
@@ -710,7 +708,7 @@
 				<key>Comment</key>
 				<string>Voodoo for Audio</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooHDA</string>
 				<key>MaxKernel</key>
@@ -825,6 +823,54 @@
 				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/HibernationFixup</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>CodecCommander.kext</string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/CodecCommander</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>FakePCIID.kext</string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/FakePCIID</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>FakePCIID_Intel_HDMI_Audio.kext</string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string></string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -1012,7 +1058,7 @@
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
 				<key>boot-args</key>
-				<string>debug=0x100 slide=1</string>
+				<string>debug=0x100 slide=1 -lilubetaall -alcdbg</string>
 				<key>csr-active-config</key>
 				<data>
 				5wMAAA==
