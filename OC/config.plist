@@ -86,6 +86,22 @@
 				<key>Path</key>
 				<string>SSDT-PS2K.aml</string>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>SBUS</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-SBUS.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>XSPI</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-XSPI.aml</string>
+			</dict>
 		</array>
 		<key>Block</key>
 		<array>
@@ -442,8 +458,10 @@
 				</data>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
+				<key>hda-idle-support</key>
+				<string>1</string>
 				<key>layout-id</key>
-				<integer>56</integer>
+				<integer>21</integer>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
@@ -695,22 +713,6 @@
 				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooI2CHID</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>VoodooHDA.kext</string>
-				<key>Comment</key>
-				<string>Voodoo for Audio</string>
-				<key>Enabled</key>
-				<false/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/VoodooHDA</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
