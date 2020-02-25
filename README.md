@@ -9,7 +9,7 @@
 | GPU | Intel UHD620 </br> Nvidia mx250 (使用`SSDT-DDGPU`屏蔽) |
 |RAM  |     8GB / 16GB LPDDR3|
 | 网卡  | Intel 9462AC/9560AC CNVio <br>(无线部分使用`SSDT-Disable-CNVI`屏蔽)|
-| 触摸板/触摸屏|  ELAN962C / SYNA7813 (MB14) / ELAN224A (MB13) （使用修改的`VoodooI2C`驱动） |
+| 触摸板/触摸屏|  ELAN962C / SYNA7813 (MB14) / ELAN224A (MB13)</br> （使用修改的`VoodooI2C`驱动） |
 | 声卡 |  ALC256 |
 |SSD | SAMSUNG PM981（无法正常安装，建议更换）<br> WDC PC SN730 (正常使用) |
 | LCD | 2160*1440|
@@ -21,7 +21,8 @@
  ##### 2020-Feb.-25   声卡更新，感谢 [黑果小兵Daliansky](https://github.com/daliansky)
  1. **声卡（ALC256）** 使用AppleALC驱动，`Layout-ID`=`56`
       * 在[黑果小兵Daliansky](https://github.com/daliansky) 的指导下，添加声卡`device-id`仿冒，以及`FakePCIID`等kexts
-      * 如果耳机孔麦克风输入不可用，可以尝试运行小兵制作的[ALCPlugFix](https://github.com/Zero-zer0/Matebook_14_2020_Hackintosh_OpenCore/tree/master/AlcPlugFix) ,下载整个文件夹后，双击运行 “`install双击自动安装.command`”,     强制输入走机身自带麦克风。</br></br>
+      * 如果**耳机孔麦克风输入不可用**，或者**耳机杂音多**可以尝试运行小兵制作的[ALCPlugFix](https://github.com/Zero-zer0/Matebook_14_2020_Hackintosh_OpenCore/tree/master/AlcPlugFix) ,下载整个文件夹后，双击运行 “`install双击自动安装.command`”,强制输入走机身自带麦克风。
+      * **如果内置麦克风输入无声音**，还可以尝试`Layout-ID`=`21`</br></br>
  
  
  
