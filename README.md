@@ -16,13 +16,18 @@
 |SMBIOS | MacBook 15,4|
 ## 目前状态
 ### 欢迎加入 华为Matebook系列黑苹果QQ交流群： 527454189  
-#### 由于我并没有机器，制作此配置仅仅出于兴趣，所以不会长期维护，而且随时跑路，希望有大佬能够接手<br> <br>
+#### 由于我并没有机器，制作此配置仅仅出于兴趣，所以不会长期维护，~~而且随时跑路，希望有大佬能够接手~~
+#### 更新：我先跑路了，有能力的欢迎提出改进方法或者建议😂<br> <br>
 
  ##### 2020-Feb.-25   声卡更新，感谢 [黑果小兵Daliansky](https://github.com/daliansky)
- 1. **声卡（ALC256）** 使用AppleALC驱动，`Layout-ID`=`56`
+ 1. **声卡（ALC256）** 使用AppleALC驱动，`Layout-ID`=~~`56`~~ `21`
       * 在[黑果小兵Daliansky](https://github.com/daliansky) 的指导下，添加声卡`device-id`仿冒，以及`FakePCIID`等kexts
       * 如果**耳机孔麦克风输入不可用**，或者**耳机杂音多**可以尝试运行小兵制作的[ALCPlugFix](https://github.com/Zero-zer0/Matebook_14_2020_Hackintosh_OpenCore/tree/master/AlcPlugFix) ,下载整个文件夹后，双击运行 “`install双击自动安装.command`”,强制输入走机身自带麦克风。
-      * **如果内置麦克风输入无声音**，还可以尝试`Layout-ID`=`21`</br></br>
+      * ~~**如果内置麦克风输入无声音**，还可以尝试`Layout-ID`=`21`~~</br></br>
+ 
+ 2. 在部分机器上有莫名其妙的`kernel_task`占用起飞的问题，原因之一来自于走轮询模式触摸屏，还不知道怎么从SSDT的角度禁用它，不过你可以从`VoodooI2C`的`info.plist`中删除`pci8086,2e9`的NameMatch
+     * 在debug文件夹内有我尝试过用`预置变量法`来启用触摸板GPIO中断的SSDT，但是存在一些问题</br></br>
+ 
  
  
  
@@ -71,6 +76,6 @@ ____________
 
 6. [chris111](https://github.com/chris1111) for maintaing supports on Realtek USB wireless card.  
 
-8. [Daliansky](https://github.com/daliansky) for instructions on AppleALC and ALCPlugFix.
+7. [Daliansky](https://github.com/daliansky) for instructions on AppleALC and ALCPlugFix.
 
-7. All the friends in QQ Group who support my work😊.
+8. All the friends in QQ Group who support my work😊.
