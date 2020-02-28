@@ -6,43 +6,50 @@
 |:--------------:|:------------------------------------------------------------------------------------------------------------------:|
 |型号 | 华为 Matebook 13/14 **2020款**|
 | CPU |    Intel Core i5 10210U/i7 10510U (Comet Lake) |
-| GPU | Intel UHD620 </br> Nvidia mx250 (使用`SSDT-DDGPU`屏蔽) |
+| GPU | Intel UHD620 </br> Nvidia MX250 (使用`SSDT-DDGPU`屏蔽) |
 |RAM  |     8GB / 16GB LPDDR3|
-| 网卡  | Intel 9462AC/9560AC CNVio <br>(无线部分使用`SSDT-Disable-CNVI`屏蔽)|
+| 网卡  | Intel 9462AC/9560AC CNVio <br>(无法驱动，使用`SSDT-Disable-CNVI`屏蔽)|
 | 触摸板/触摸屏|  ELAN962C / SYNA7813 (MB14) / ELAN224A (MB13)</br> （使用修改的`VoodooI2C`驱动） |
 | 声卡 |  ALC256 |
 |SSD | SAMSUNG PM981（无法正常安装，建议更换）<br> WDC PC SN730 (正常使用) |
 | LCD | 2160*1440|
 |SMBIOS | MacBook 15,4|
+--------
 ## 目前状态
 ### 欢迎加入 华为Matebook系列黑苹果QQ交流群： 527454189  
-### 不要为了装macOS买这个机器！由于BIOS和网卡的限制，永远达不到相对完美的境界！需要笔记本整黑苹果请左转隔壁美帝良心想
-#### 由于我并没有机器，制作此配置仅仅出于兴趣，所以不会长期维护，~~而且随时跑路，希望有大佬能够接手~~
-#### 更新：我先跑路了，有能力的欢迎提出改进方法或者建议😂<br> <br>
+### **不要为了装macOS买这个机器！** 由于BIOS和网卡的限制，connectivity功能无法正常使用。需要笔记本整黑苹果请左转隔壁~~美帝良心想~~
+### 由于我并没有机器，制作此配置仅仅出于兴趣，所以不会长期维护，而且随时跑路，希望有大佬能够接手
+### 欢迎提出改进方法与建议😂<br> <br>
 
- ##### 2020-Feb.-25   声卡更新，感谢 [黑果小兵Daliansky](https://github.com/daliansky)
+ #### 2020-Feb.-28    触摸板更新
+ 1. 弃用`SSDT-OC-XOSI`,使用“预置变量法”的方式，启用触摸设备的GPIO中断，感谢 **@宪武**</br> 参见[OC-little](https://github.com/daliansky/OC-little)--《二进制更名与预置变量》、《I2C专用部件》
+ * 触摸板`ELAN962C`默认走GPIO中断，`GPIO Pin`由系统固件决定，无需指定
+ * 触摸屏`SYNA7813` (MateBook 14) `ELAN224A` (MateBook 13) 的`GPIO Pin`为`0x42`,强制走`GPIO中断`。VoodooI2C的日志看不出问题，但据报告称，触摸屏只能在开机后“划一下”有反应，然后就没有然后了</br>~~**管它呢反正是个鸡肋玩意**~~</br>
+ 2. 删除了造成莫名其妙导致机器满载的`CodecCommander.kext`,如果发现其他导致**负载异常**的情况，欢迎提出
+ 
+ #### 2020-Feb.-25   声卡更新，感谢 [黑果小兵Daliansky](https://github.com/daliansky)
  1. **声卡（ALC256）** 使用AppleALC驱动，`Layout-ID`=~~`56`~~ `21`
       * 在[黑果小兵Daliansky](https://github.com/daliansky) 的指导下，添加声卡`device-id`仿冒，以及`FakePCIID`等kexts
       * 如果**耳机孔麦克风输入不可用**，或者**耳机杂音多**可以尝试运行小兵制作的[ALCPlugFix](https://github.com/Zero-zer0/Matebook_14_2020_Hackintosh_OpenCore/tree/master/AlcPlugFix) ,下载整个文件夹后，双击运行 “`install双击自动安装.command`”,强制输入走机身自带麦克风。
       * ~~**如果内置麦克风输入无声音**，还可以尝试`Layout-ID`=`21`~~</br></br>
  
- 2. ~~在部分机器上有莫名其妙的`kernel_task`占用起飞的问题，原因之一来自于走轮询模式触摸屏，还不知道怎么从SSDT的角度禁用它，不过你可以从`VoodooI2C`的`info.plist`中删除`pci8086,2e9`的NameMatch~~ **已修复，`CodecCommander`冲突了**
+ 2. ~~在部分机器上有莫名其妙的`kernel_task`占用起飞的问题，原因之一来自于走轮询模式触摸屏，还不知道怎么从SSDT的角度禁用它，不过你可以从`VoodooI2C`的`info.plist`中删除`pci8086,2e9`的NameMatch~~ **已修复(大概)，貌似是`CodecCommander`导致的问题**
      * 在debug文件夹内有我尝试过用`预置变量法`来启用触摸板GPIO中断的SSDT，但是存在一些问题</br></br>
  
  
  
  
- ##### 2020-Feb.-22  鬼知道还有没有下一次更新的更新
+ #### 2020-Feb.-22  鬼知道还有没有下一次更新的更新
  1. ~~**声卡（ALC256）** 使用`VoodooHDA`驱动~~
     * 使用VoodooHDA提取到的有效路径中，缺少`耳机口MIC输入`的路径  
     * ~~使用`AppleALC`节点路径几乎完全一致的`Layout-ID=21`只能做到内置麦克风输入，猜测是`ConfigData`的问题~~
     * ~~声卡定制仍在学习，欢迎有能力的大佬继续挖掘，已经上传Codec和VoodooHDA的dump文件</br><br>~~
- 2. **触摸板与触摸屏**  暂时使用十分dirty的`SSDT-XOSI`实现驱动。  </br>
+ 2. ~~**触摸板与触摸屏**  暂时使用十分dirty的`SSDT-XOSI`实现驱动。~~  </br>
     * 触摸板(`_SB.PCI0.I2C0.TPD0`)可以在`SSDT-XOSI`的作用下默认走GPIO中断    
-    * 触摸屏(`_SB.PCI0.I2C1.TPL1`)的`APIC Pin`为`0x6e`，转换出来的`GPIO Pin` 是`0x6e` 或 `0x42`,能否走GPIO中断还有待测试，目前走轮询。  (Matebook 14可以正常使用。Matebook 13不一定，原因未知)
+    * 触摸屏(`_SB.PCI0.I2C1.TPL1`)的`APIC Pin`为`0x6e`，转换出来的`GPIO Pin` ~~是`0x6e` 或~~ `0x42`,能否走GPIO中断还有待测试，目前走轮询。  (Matebook 14可以正常使用。Matebook 13不一定，原因未知)
     * 据群友反映，触摸板有一定概率会在睡眠唤醒后失效，由于未提供日志，原因未知。  </br>
-    * 已经为触摸屏走GPIO中断写了三个SSDT，具体ACPI需要重命名什么打开看就知道了，count skip懒得数（
-    * 同样可以根据这样的SSDT，为触摸板开启macOS下的GPIO中断，以抛弃`SSDT-XOSI`</br></br>
+    * ~~已经为触摸屏走GPIO中断写了三个SSDT，具体ACPI需要重命名什么打开看就知道了，count skip懒得数（~~
+    * ~~同样可以根据这样的SSDT，为触摸板开启macOS下的GPIO中断，以抛弃`SSDT-XOSI`</br></br>~~
  3. **核显**
     * 目前的`platform-id`为`0xa53e0000`，可以正常驱动，HiDPI正常
     * 自带HDMI似乎无法正常工作
@@ -53,7 +60,7 @@
   
  
  
- ##### 2020-Feb.-17 首次更新（OpenCore 0.5.5正常开机使用）
+ #### 2020-Feb.-17 首次更新（OpenCore 0.5.5正常开机使用）
  1. 触摸屏/触摸板使用 [bat.bat](https://github.com/williambj1) 编译的修改版VoodooI2C进行驱动,在此表示感谢  
  2. ~~声卡ALC256，目前**无法驱动**~~
  3. 由于没搞清楚独显的具体PCI地址，使用了一个较为通用的`SSDT-DDGPU`屏蔽独显，可能会屏蔽掉潜在的PCIe通道（可能是给网卡用的，我猜）  
