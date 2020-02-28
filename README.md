@@ -26,7 +26,7 @@
       * 如果**耳机孔麦克风输入不可用**，或者**耳机杂音多**可以尝试运行小兵制作的[ALCPlugFix](https://github.com/Zero-zer0/Matebook_14_2020_Hackintosh_OpenCore/tree/master/AlcPlugFix) ,下载整个文件夹后，双击运行 “`install双击自动安装.command`”,强制输入走机身自带麦克风。
       * ~~**如果内置麦克风输入无声音**，还可以尝试`Layout-ID`=`21`~~</br></br>
  
- 2. 在部分机器上有莫名其妙的`kernel_task`占用起飞的问题，原因之一来自于走轮询模式触摸屏，还不知道怎么从SSDT的角度禁用它，不过你可以从`VoodooI2C`的`info.plist`中删除`pci8086,2e9`的NameMatch
+ 2. ~~在部分机器上有莫名其妙的`kernel_task`占用起飞的问题，原因之一来自于走轮询模式触摸屏，还不知道怎么从SSDT的角度禁用它，不过你可以从`VoodooI2C`的`info.plist`中删除`pci8086,2e9`的NameMatch~~ **已修复，`CodecCommander`冲突了**
      * 在debug文件夹内有我尝试过用`预置变量法`来启用触摸板GPIO中断的SSDT，但是存在一些问题</br></br>
  
  
