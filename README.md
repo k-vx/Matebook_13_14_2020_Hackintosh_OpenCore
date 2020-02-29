@@ -11,7 +11,7 @@
 | 网卡  | Intel 9462AC/9560AC CNVio <br>(无法驱动，使用`SSDT-Disable-CNVI`屏蔽)|
 | 触摸板/触摸屏|  ELAN962C / SYNA7813 (MB14) / ELAN224A (MB13)</br> （使用修改的`VoodooI2C`驱动） |
 | 声卡 |  ALC256 |
-|SSD | SAMSUNG PM981（无法正常安装，建议更换）<br> WDC PC SN730 (正常使用) |
+|SSD | SAMSUNG PM981（无法正常安装，建议更换）<br> WDC PC SN730 </br>东芝 XG6 |
 | LCD | 2160*1440|
 |SMBIOS | MacBook 15,4|
 --------
@@ -24,8 +24,11 @@
  #### 2020-Feb.-28    触摸板更新
  1. 弃用`SSDT-OC-XOSI`,使用“预置变量法”的方式，启用触摸设备的GPIO中断，感谢 **@宪武**</br> 参见[OC-little](https://github.com/daliansky/OC-little)--《二进制更名与预置变量》、《I2C专用部件》
  * 触摸板`ELAN962C`默认走GPIO中断，`GPIO Pin`由系统固件决定，无需指定
- * 触摸屏`SYNA7813` (MateBook 14) `ELAN224A` (MateBook 13) 的`GPIO Pin`为`0x42`,强制走`GPIO中断`。VoodooI2C的日志看不出问题，但据报告称，触摸屏只能在开机后“划一下”有反应，然后就没有然后了</br>~~**管它呢反正是个鸡肋玩意**~~</br>
+ * 触摸屏`SYNA7813` (MateBook 14) `ELAN224A` (MateBook 13) 的`GPIO Pin`为`0x42`,强制走`GPIO中断`。VoodooI2C的日志看不出问题，但据报告称，触摸屏只能在开机后“划一下”有反应，然后就没有然后了</br>
+* 在MateBook 13上，触摸屏仍然会引起CPU满载的问题，现默认屏蔽。~~**管它呢反正是个鸡肋玩意**~~
+</br>
  2. 删除了造成莫名其妙导致机器满载的`CodecCommander.kext`,如果发现其他导致**负载异常**的情况，欢迎提出
+ * 另外，`FakePCIID`  有一定概率导致CPU满载，但是目前不得不使用以达到驱动声卡的目的，有待进一步观察。
  
  #### 2020-Feb.-25   声卡更新，感谢 [黑果小兵Daliansky](https://github.com/daliansky)
  1. **声卡（ALC256）** 使用AppleALC驱动，`Layout-ID`=~~`56`~~ `21`

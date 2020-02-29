@@ -66,9 +66,25 @@
 				<key>Comment</key>
 				<string>TPL1</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-TPX1-MB14.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>TPL1</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-TPX1-MB13.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>TPL1</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-TPX1-NO.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -426,6 +442,10 @@
 		<dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
 			<dict>
+				<key>#no-controller-patch</key>
+				<data>
+				AQAAAA==
+				</data>
 				<key>device-id</key>
 				<data>
 				yJ0AAA==
@@ -435,7 +455,9 @@
 				<key>hda-idle-support</key>
 				<string>1</string>
 				<key>layout-id</key>
-				<integer>21</integer>
+				<data>
+				FQAAAA==
+				</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
@@ -875,7 +897,7 @@
 			<key>AppleXcpmCfgLock</key>
 			<false/>
 			<key>AppleXcpmExtraMsrs</key>
-			<false/>
+			<true/>
 			<key>AppleXcpmForceBoost</key>
 			<false/>
 			<key>CustomSMBIOSGuid</key>
@@ -887,7 +909,7 @@
 			<key>ExternalDiskIcons</key>
 			<false/>
 			<key>IncreasePciBarSize</key>
-			<true/>
+			<false/>
 			<key>LapicKernelPanic</key>
 			<false/>
 			<key>PanicNoKextDump</key>
