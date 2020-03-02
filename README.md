@@ -21,14 +21,26 @@
 ### 由于我并没有机器，制作此配置仅仅出于兴趣，所以不会长期维护，而且随时跑路，希望有大佬能够接手
 ### 欢迎提出改进方法与建议😂<br> <br>
 
+ #### 2020-Mar.-2   全家桶更新
+ 1. 基于OpenCore 0.5.6，顺带[Acidanthera](https://github.com/acidanthera)全家桶更新  </br>
+
+ 2. 基于 `Clover`的测试得出结论：导致`kernel_task`起飞的原因在于触摸屏（感谢群友**Joker**）。</br>无论是走轮询还是走GPIO，都会导致大量的资源消耗，具体是`VoodooI2C`的bug还是其他原因，有待探究。
+
+ 3. 加入`CPUFriend`实现更好的电源管理</br>
+
+ 4. 加入`config-DVMT64.plist`供**解锁BIOS隐藏设置**后使用，可以达到更好的HiDPI与外接4k效果</br></br>
+ 
+ 
+ 
+ 
  #### 2020-Feb.-28    触摸板更新
  1. 弃用`SSDT-OC-XOSI`,使用“预置变量法”的方式，启用触摸设备的GPIO中断，感谢 **@宪武**</br> 参见[OC-little](https://github.com/daliansky/OC-little)--《二进制更名与预置变量》、《I2C专用部件》
  * 触摸板`ELAN962C`默认走GPIO中断，`GPIO Pin`由系统固件决定，无需指定
  * 触摸屏`SYNA7813` (MateBook 14) `ELAN224A` (MateBook 13) 的`GPIO Pin`为`0x42`,强制走`GPIO中断`。VoodooI2C的日志看不出问题，但据报告称，触摸屏只能在开机后“划一下”有反应，然后就没有然后了</br>
 * 在MateBook 13上，触摸屏仍然会引起CPU满载的问题，现默认屏蔽。~~**管它呢反正是个鸡肋玩意**~~
 </br>
- 2. 删除了造成莫名其妙导致机器满载的`CodecCommander.kext`,如果发现其他导致**负载异常**的情况，欢迎提出
- * 另外，`FakePCIID`  有一定概率导致CPU满载，但是目前不得不使用以达到驱动声卡的目的，有待进一步观察。
+ 2. ~~删除了造成莫名其妙导致机器满载的`CodecCommander.kext`,如果发现其他导致**负载异常**的情况，欢迎提出~~
+ * ~~另外，`FakePCIID`  有一定概率导致CPU满载，但是目前不得不使用以达到驱动声卡的目的，有待进一步观察。~~
  
  #### 2020-Feb.-25   声卡更新，感谢 [黑果小兵Daliansky](https://github.com/daliansky)
  1. **声卡（ALC256）** 使用AppleALC驱动，`Layout-ID`=~~`56`~~ `21`
@@ -36,8 +48,8 @@
       * 如果**耳机孔麦克风输入不可用**，或者**耳机杂音多**可以尝试运行小兵制作的[ALCPlugFix](https://github.com/Zero-zer0/Matebook_14_2020_Hackintosh_OpenCore/tree/master/AlcPlugFix) ,下载整个文件夹后，双击运行 “`install双击自动安装.command`”,强制输入走机身自带麦克风。
       * ~~**如果内置麦克风输入无声音**，还可以尝试`Layout-ID`=`21`~~</br></br>
  
- 2. ~~在部分机器上有莫名其妙的`kernel_task`占用起飞的问题，原因之一来自于走轮询模式触摸屏，还不知道怎么从SSDT的角度禁用它，不过你可以从`VoodooI2C`的`info.plist`中删除`pci8086,2e9`的NameMatch~~ **已修复(大概)，貌似是`CodecCommander`导致的问题**
-     * 在debug文件夹内有我尝试过用`预置变量法`来启用触摸板GPIO中断的SSDT，但是存在一些问题</br></br>
+ 2. ~~在部分机器上有莫名其妙的`kernel_task`占用起飞的问题，原因之一来自于走轮询模式触摸屏，还不知道怎么从SSDT的角度禁用它，不过你可以从`VoodooI2C`的`info.plist`中删除`pci8086,2e9`的NameMatch~~ ~~**已修复(大概)，貌似是`CodecCommander`导致的问题**~~
+     * ~~在debug文件夹内有我尝试过用`预置变量法`来启用触摸板GPIO中断的SSDT，但是存在一些问题</br></br>~~
  
  
  
