@@ -22,6 +22,12 @@
 #### **不要为了装macOS买这个机器！** 由于BIOS和网卡的限制，connectivity功能无法正常使用。需要笔记本整黑苹果请左转隔壁~~美帝良心想~~
 
 
+ #### 2020-Mar.-7
+ 1. 增加`SSDT-I2CxConf`解决某些时候触摸板失效的问题。
+ 2. 去除引起冲突的声卡参数
+ 3. 禁用可能引起CPU无故升高的`ACPI_SMC_PlatformPlugin`
+ 
+ 
  #### 2020-Mar.-2   全家桶更新
  1. 基于OpenCore 0.5.6，顺带[Acidanthera](https://github.com/acidanthera)全家桶更新  </br>
 
