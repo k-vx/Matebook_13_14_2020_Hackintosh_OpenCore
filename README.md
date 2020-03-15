@@ -18,16 +18,30 @@
 ## 目前状态
 ### 由于我并没有机器，制作此配置仅仅出于兴趣。本人处于跑路状态，希望手上有机器的大佬能接手本仓库
 
-#### 欢迎加入 华为Matebook系列黑苹果QQ交流群： 527454189  
 #### **不要为了装macOS买这个机器！** 由于BIOS和网卡的限制，connectivity功能无法正常使用。需要笔记本整黑苹果请左转隔壁~~美帝良心想~~
+
+
+ #### 2020-Mar.-15 闲得蛋疼测试
+ * 增加触摸屏相关的SSDT，可以自行搭配以供折腾</br>
+   
+      * 由于**触摸屏**会导致`kernel_task`的起飞，而且**触摸板**走`GPIO中断`的占用高于`轮询`。因此加入不同的触摸板+触摸屏的驱动方式以供自行搭配折腾。</br>
+
+      1. 默认存放在`EFI/OC/ACPI`下的`SSDT-TPXX`用于驱动触摸板，走GPIO中断。</br>如果觉得占用`kernel_task`过高使你不爽，可以换用`Tests`文件夹下的`SSDT-TPXX-Polling`使用轮询，文件名称改为`SSDT-TPXX`并替换原文件即可。</br>当然，顺滑度会有所下降，看个人喜好</br></br>
+
+      2. 默认存放在`EFI/OC/ACPI`下的`SSDT-TPX1`用于禁用触摸屏，并且在`VoodooI2C`中也删除了触摸屏I2C控制器的ID.
+      如果你想要折腾，
+         1. 在`Tests`文件夹下</br>按照机型选择`SSDT-TPX1-GPIO-MBxx`或`SSDT-TPX1-Polling-MBxx`，</br>`GPIO`代表使用`GPIO`中断，`Polling`代表轮询；</br>`MB13`代表Matebook13，`MB14`代表Matebook14</br>选择相应的SSDT后，改名并替换原来的`SSDT-TPX1`。
+         2. 替换`Tests`文件夹下的`VoodooI2C.kext`，恢复对触摸屏所在I2C控制器`pci8086,2e9`的支持。
+      **欢迎提出使用感受**，目前已知在Matebook13上，同时使用GPIO中断驱动触摸板和触摸屏会导致`kernel_task`起飞🛫️。
+      
 
 
  #### 2020-Mar.-7
  1. 增加`SSDT-I2CxConf`解决某些时候触摸板失效的问题。
  2. 去除引起冲突的声卡参数
  3. 禁用可能引起CPU无故升高的`ACPI_SMC_PlatformPlugin`
- 
- 
+
+
  #### 2020-Mar.-2   全家桶更新
  1. 基于OpenCore 0.5.6，顺带[Acidanthera](https://github.com/acidanthera)全家桶更新  </br>
 
@@ -36,10 +50,10 @@
  3. 加入`CPUFriend`实现更好的电源管理</br>
 
  4. 加入`config-DVMT64.plist`供**解锁BIOS隐藏设置**后使用，可以达到更好的HiDPI与外接4k效果</br></br>
+
  
- 
- 
- 
+
+
  #### 2020-Feb.-28    触摸板更新
  1. 弃用`SSDT-OC-XOSI`,使用“预置变量法”的方式，启用触摸设备的GPIO中断，感谢 **@宪武**</br> 参见[OC-little](https://github.com/daliansky/OC-little)--《二进制更名与预置变量》、《I2C专用部件》
  * 触摸板`ELAN962C`默认走GPIO中断，`GPIO Pin`由系统固件决定，无需指定
@@ -48,19 +62,19 @@
 </br>
  2. 删除了造成莫名其妙导致机器满载的`CodecCommander.kext`,如果发现其他导致**负载异常**的情况，欢迎提出  </br>
     另外，`FakePCIID`  有一定概率导致CPU满载，但是目前不得不使用以达到驱动声卡的目的，有待进一步观察。</br></br>
- 
+
  #### 2020-Feb.-25   声卡更新，感谢 [黑果小兵Daliansky](https://github.com/daliansky)
  1. **声卡（ALC256）** 使用AppleALC驱动，`Layout-ID`=~~`56`~~ `21`
       * 在[黑果小兵Daliansky](https://github.com/daliansky) 的指导下，添加声卡`device-id`仿冒，以及`FakePCIID`等kexts
       * 如果**耳机孔麦克风输入不可用**，或者**耳机杂音多**可以尝试运行小兵制作的[ALCPlugFix](https://github.com/Zero-zer0/Matebook_14_2020_Hackintosh_OpenCore/tree/master/AlcPlugFix) ,下载整个文件夹后，双击运行 “`install双击自动安装.command`”,强制输入走机身自带麦克风。
       * ~~**如果内置麦克风输入无声音**，还可以尝试`Layout-ID`=`21`~~</br></br>
- 
+
  2. 在部分机器上有莫名其妙的`kernel_task`占用起飞的问题，原因之一来自于走轮询模式触摸屏，还不知道怎么从SSDT的角度禁用它，不过你可以从`VoodooI2C`的`info.plist`中删除`pci8086,2e9`的NameMatch
      * ~~在debug文件夹内有我尝试过用`预置变量法`来启用触摸板GPIO中断的SSDT，但是存在一些问题</br></br>~~
+
  
- 
- 
- 
+
+
  #### 2020-Feb.-22  鬼知道还有没有下一次更新的更新
  1. ~~**声卡（ALC256）** 使用`VoodooHDA`驱动~~
     * 使用VoodooHDA提取到的有效路径中，缺少`耳机口MIC输入`的路径  
@@ -79,9 +93,9 @@
     * 受限于DVMT，只能做到外接2K屏幕，外接4K需要解锁BIOS隐藏项目
     * 有一定的概率会出现关机花屏的情况
     * 有更加合适的`platform-id`欢迎提出
-  
+
  
- 
+
  #### 2020-Feb.-17 首次更新（OpenCore 0.5.5正常开机使用）
  1. 触摸屏/触摸板使用 [bat.bat](https://github.com/williambj1) 编译的修改版VoodooI2C进行驱动,在此表示感谢  
  2. ~~声卡ALC256，目前**无法驱动**~~

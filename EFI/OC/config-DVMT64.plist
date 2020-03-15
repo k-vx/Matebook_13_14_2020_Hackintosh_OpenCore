@@ -76,7 +76,7 @@
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-TPX1-NO.aml</string>
+				<string>SSDT-TPX1.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
