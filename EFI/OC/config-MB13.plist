@@ -66,9 +66,17 @@
 				<key>Comment</key>
 				<string>TPD0</string>
 				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-TPXX-GPIO.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>TPD0</string>
+				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-TPXX.aml</string>
+				<string>SSDT-TPXX-Polling.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -76,7 +84,15 @@
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-TPX1.aml</string>
+				<string>SSDT-TPX1-NO.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>TPL1</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-TPX1-Polling-MB14.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
