@@ -15,42 +15,42 @@
 | LCD | 2160*1440|
 |SMBIOS | MacBookPro 15,4|
 --------
-### 由于我并没有机器，制作此配置仅仅出于兴趣。~~本人处于跑路状态~~，希望手上有机器的大佬能接手本仓库
+### ⚠️由于我并没有机器，制作此配置仅仅出于兴趣。~~本人处于跑路状态~~，希望手上有机器的大佬能接手本仓库
 
-### **不要为了安装macOS而购买这个机器！** 由于BIOS和网卡的限制，connectivity功能无法正常使用。需要笔记本整黑苹果请左转隔壁~~美帝良心想~~
+### ⚠️**不要为了安装macOS而购买这个机器！** 由于BIOS和网卡的限制，connectivity功能无法正常使用。需要笔记本整黑苹果请左转隔壁~~美帝良心想~~
 
 ## 目前状态
 ### What's working
-- ✅ Intel UHD 620 核心显卡
-    - 背光调节
-    - 背光快捷键
-- ✅ USB
-- ✅ 声卡
-   - 外放
-   - 耳机输出
-   - 机身麦克风
-- ✅ 触摸板
-- ✅ 触摸屏（仅Matebook 14启用）
-- ✅ Intel 蓝牙
-- ✅ 睡眠
-- ✅
+- [x] Intel UHD 620 核心显卡
+    - [x]  背光调节
+    - [x] 背光快捷键
+- [x] USB
+- [x] 声卡(ALC256, layout-id=21)
+   - [x] 外放
+   - [x] 耳机输出
+   - [x] 机身麦克风
+- [x] 触摸板
+- [x] 触摸屏（仅Matebook 14启用）
+- [x] Intel 蓝牙
+- [x] 睡眠
+- [x] NVRAM
 
 ### What's not working
-- ❌ 耳机孔麦克风输入
-- ❌ Nvidia MX250
-- ❌ Intel Wireless AC9462/9560 CNVio 无线网卡
-- ❌ SPI指纹
-- ❌ 摄像头 (AzureWave)
-- ❌ SAMSUNG PM981 NVMe SSD
+-  Nvidia MX250
+-  Intel Wireless AC9462/9560 CNVio 无线网卡
+-  SPI指纹
+-  摄像头 (AzureWave)
+-  SAMSUNG PM981 NVMe SSD
 
-### Things need to be Improved
-- Matebook 14 的机身HDMI输出端口定制，目前只能使用扩展坞输出
-- Matebook 13 / 14的电池修补，虽然没有必要，而且十分复杂，并非拆字节就能解决
-- Matebook 13的`kernel_task`起飞问题
+### Working with Small Issues
+- Matebook 14 的机身HDMI输出端口，目前只能使用扩展坞输出
+- Matebook 13 / 14的电池修补，虽然没有必要(似乎)，而且十分复杂，并非拆字节就能解决
+- Matebook 13 上`kernel_task`无故起飞
 - 独显在睡眠后重新上电（`SSDT-PTSWAK`）
+- 耳机孔麦克风输入不工作
 - 想到了再加
-
-### ChangeLog
+------
+## ChangeLog
 
  #### 2020-Mar.-17
    * 触摸更新
