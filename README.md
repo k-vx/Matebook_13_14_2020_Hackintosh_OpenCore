@@ -1,14 +1,12 @@
 # Matebook_13/14_2020_Hackintosh_OpenCore
- A hackintosh OpenCore EFI for Huawei Matebook 13/14 2020 Intel Edition(Comet Lake)
- Matebook 13/14 2020款 黑苹果
 ## 配置信息
 |  | 详细                                                                                                         |
 |:--------------:|:------------------------------------------------------------------------------------------------------------------:|
-|型号 | 华为 Matebook 13/14 **2020款**|
+|型号 | Huawei Matebook 13/14 **2020**|
 | CPU |    Intel Core i5 10210U/i7 10510U (Comet Lake) |
-| GPU | Intel UHD620 </br> Nvidia MX250 (使用`SSDT-DDGPU`屏蔽) |
+| GPU | Intel UHD620 </br> Nvidia MX250 |
 |RAM  |     8GB / 16GB LPDDR3|
-| 网卡  | Intel 9462AC / 9560AC CNVio <br>(使用`SSDT-Disable-CNVI`屏蔽)|
+| 网卡  | Intel 9462AC / 9560AC CNVio <br>|
 | 触摸板/触摸屏|  ELAN962C </br> SYNA7813 (MB14) / ELAN224A (MB13)</br>  |
 | 声卡 |  ALC256 |
 |SSD | SAMSUNG PM981（无法正常安装，建议更换）<br> WDC PC SN730 </br>Toshiba XG6 |
@@ -35,22 +33,44 @@
 - [x] 睡眠
 - [x] NVRAM
 
-### What's not working
+### What's not working 不工作的硬件
 -  Nvidia MX250
 -  Intel Wireless AC9462/9560 CNVio 无线网卡
 -  SPI指纹
 -  摄像头 (AzureWave)
 -  SAMSUNG PM981 NVMe SSD
 
-### Working with Small Issues
-- Matebook 14 的机身HDMI输出端口，目前只能使用扩展坞输出
-- Matebook 13 / 14的电池修补，虽然没有必要(似乎)，而且十分复杂，并非拆字节就能解决
-- Matebook 13 上`kernel_task`无故起飞
-- 独显在睡眠后重新上电（`SSDT-PTSWAK`）
+### Working with Small Issues / 小问题
+- Matebook 14 的机身HDMI输出端口，有待测试，欢迎反馈
+- 部分机器上出现`kernel_task`无故起飞 (AppleALC的问题)
+   - 在出现这个问题时，**可以尝试通过合盖睡眠再唤醒**
 - 耳机孔麦克风输入不工作
 - 想到了再加
-------
+
+
+### TODOs after install / 在安装完之后需要做的事情
+   1. 安装`ComboJack`实现耳机耳麦切换，改进电流声。
+      - 在[这里](https://github.com/Heporis/ComboJack)下载由[Heporis](https://github.com/Heporis)制作的ComboJack.
+      - 终端运行 
+      > ComboJack_Installer/install.sh
+
+   2. 触摸板找不到时，在终端运行
+      > sudo kextcache -i /
+   
+   3. 如果你从旧版本的OpenCore转换过来，请`Clean NVRAM`或`Reset NVRAM`+重新建立引导项目
+   
+   4. **由[chris111](https://github.com/chris1111)维护的Realtek USB 无线网卡驱动**：[Link](https://github.com/chris1111/Wireless-USB-Adapter/files/4301778/Wireless.USB.Adapter-V11.zip)
+
 ## ChangeLog
+<details>
+<summary>Show All</summary>
+
+ #### 2020-Apr.-3
+   - 升级`IntelBluetoothFirmware`: [link](https://github.com/zxystd/IntelBluetoothFirmware/releases/tag/1.0.3)
+   - 合并一些ACPI表
+   - 加入Matebook 13的电池修补SSDT， 并换用`ACPIBatteryManager`
+   - 加入`VerbStub`实现手动耳机切换，以实现更好的音质，需要搭配[ComboJack](https://github.com/Heporis/ComboJack)
+   - 使用[bat.bat](https://github.com/williambj1)编译的`VoodooI2C`+`VoodooInput`+`VoodooPS2Controller`
 
  #### 2020-Mar.-17
    * 触摸更新
@@ -144,6 +164,22 @@
  7. USB端口未定制，有需求请使用 `Hackintool` 自行定制   
  8. 已内置Realtek USB网卡驱动，`Wireless Ultility`请下载 [Wireless-USB-Adapter](https://github.com/chris1111/Wireless-USB-Adapter-Clover/releases)  
  9. 其他的想到了再加</br></br>
+
+
+ </details>
+
+
+
+
+## Reward / 赞赏
+
+如果这个项目对你有帮助，可以请我一罐肥宅快乐水  
+毕竟保持快乐，才有动力更新下去😂
+
+| Wechat                                                                                              |
+| ---------------------------------------- | --------------------------------------- |
+| ![wechatpay](https://s1.ax1x.com/2020/04/03/GN5Jpj.th.png) 
+
 ____________
  ## Credits
  1. [Acidanthera](https://github.com/acidanthera) for OpenCore (and related documents) , Lilu, AppleALC and other awesome projects.
