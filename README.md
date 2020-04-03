@@ -17,8 +17,8 @@
 
 ### ⚠️**不要为了安装macOS而购买这个机器！** 由于BIOS和网卡的限制，connectivity功能无法正常使用。需要笔记本整黑苹果请左转隔壁~~美帝良心想~~
 
-## 目前状态
-### What's working
+
+## What's working
 - [x] Intel UHD 620 核心显卡
     - [x]  背光调节
     - [x] 背光快捷键
@@ -33,14 +33,15 @@
 - [x] 睡眠
 - [x] NVRAM
 
-### What's not working 不工作的硬件
+
+## What's not working / 不工作的硬件
 -  Nvidia MX250
 -  Intel Wireless AC9462/9560 CNVio 无线网卡
 -  SPI指纹
 -  摄像头 (AzureWave)
 -  SAMSUNG PM981 NVMe SSD
 
-### Working with Small Issues / 小问题
+## Working with Small Issues / 小问题
 - Matebook 14 的机身HDMI输出端口，有待测试，欢迎反馈
 - 部分机器上出现`kernel_task`无故起飞 (AppleALC的问题)
    - 在出现这个问题时，**可以尝试通过合盖睡眠再唤醒**
@@ -48,7 +49,7 @@
 - 想到了再加
 
 
-### TODOs after install / 在安装完之后需要做的事情
+## TODOs after install / 在安装完之后需要做的事情
    1. 安装`ComboJack`实现耳机耳麦切换，改进电流声。
       - 在[这里](https://github.com/Heporis/ComboJack)下载由[Heporis](https://github.com/Heporis)制作的ComboJack.
       - 终端运行 
@@ -60,6 +61,11 @@
    3. 如果你从旧版本的OpenCore转换过来，请`Clean NVRAM`或`Reset NVRAM`+重新建立引导项目
    
    4. **由[chris111](https://github.com/chris1111)维护的Realtek USB 无线网卡驱动**：[Link](https://github.com/chris1111/Wireless-USB-Adapter/files/4301778/Wireless.USB.Adapter-V11.zip)
+
+## Download / 下载
+   请不要直接Clone整个仓库，而是下载打包好的最新Release
+   
+   - [Download](https://github.com/Zero-zer0/Matebook_13_14_2020_Hackintosh_OpenCore/releases)
 
 ## ChangeLog
 <details>
@@ -176,9 +182,11 @@
 如果这个项目对你有帮助，可以请我一罐肥宅快乐水  
 毕竟保持快乐，才有动力更新下去😂
 
-| Wechat                                                                                              |
-| ---------------------------------------- | --------------------------------------- |
-| ![wechatpay](https://s1.ax1x.com/2020/04/03/GN5Jpj.th.png) 
+|                Wechat                  |
+|--------------------------------------- |
+| ![wechatpay](https://s1.ax1x.com/2020/04/03/GN5Jpj.th.png) |
+
+
 
 ____________
  ## Credits
@@ -196,4 +204,4 @@ ____________
 
 7. [Daliansky](https://github.com/daliansky) for instructions on AppleALC and ALCPlugFix.
 
-8. All the friends in QQ Group who support my work😊.
+8. All the friends in QQ Group who support my work.
