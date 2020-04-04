@@ -65,13 +65,27 @@
    2. 触摸板找不到时，在终端运行
       > sudo kextcache -i /
    
-   3. 如果你从旧版本的OpenCore转换过来，请`Clean NVRAM`或`Reset NVRAM`+重新建立引导项目
+   3. 如果你从旧版本的OpenCore转换过来，请`Clean NVRAM`或`Reset NVRAM`+使用EasyUEFI、Bootice等软件重新建立引导
+   </br>
    
    4. **由[chris111](https://github.com/chris1111)维护的Realtek USB 无线网卡驱动**：[Link](https://github.com/chris1111/Wireless-USB-Adapter/files/4301778/Wireless.USB.Adapter-V11.zip)
+   </br>
 
    5. `VoodooPS2Controller`有自动关闭触摸板以防误触的功能。如果发现触摸板失效了，可以尝试按一下 `F11`
+   </br>
 
    6. 安装的过程中可能需要一个USB鼠标。
+   </br>
+
+   7. 开启HiDPI
+      - 网络情况较好的情况下，直接使用[one-key-hidpi](https://github.com/xzhih/one-key-hidpi)
+      - 网络情况较差，或无法正常使用上述脚本的，可以考虑使用Gitee上的镜像(不保证最新)
+         ```bash
+         bash -c "$(curl -fsSL https://gitee.com/xoywuyue/one-key-hidpi/raw/master/hidpi.sh)"
+         ```
+      - 选择开启HiDPI（不要注入EDID）
+      - 图标自选，保持默认即可
+      - 分辨率需要自定义几个3:2的分辨率</br>如 `1500x1000`, `1350x900`等等
 
 ## Download / 下载
    请不要直接Clone整个仓库，而是下载打包后的Release
