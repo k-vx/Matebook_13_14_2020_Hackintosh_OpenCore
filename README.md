@@ -9,7 +9,7 @@
 | 网卡  | Intel 9462AC / 9560AC CNVio <br>|
 | 触摸板/触摸屏|  ELAN962C </br> SYNA7813 (MB14) / ELAN224A (MB13)</br>  |
 | 声卡 |  ALC256 |
-|SSD | SAMSUNG PM981（无法正常安装，建议更换）<br> WDC PC SN730 </br>Toshiba XG6 |
+|SSD | SAMSUNG PM981 <br> WDC PC SN730 </br> Toshiba XG6 |
 | LCD | 2160*1440|
 |SMBIOS | MacBookPro 15,4|
 --------
@@ -28,10 +28,17 @@
    - [x] 耳机输出
    - [x] 机身麦克风
 - [x] 触摸板
-- [x] 触摸屏（仅Matebook 14启用）
+- [x] 触摸屏
+   - 仅Matebook 14启用，Matebook 13由于一些问题暂时禁用
 - [x] Intel 蓝牙
 - [x] 睡眠
 - [x] NVRAM
+- [x] HDMI 输出
+   - Matebook 
+- [x] DP输出 
+   - 4k 60Hz 需要解锁`DVMT Pre-allocated`至`64M`,使用`ru.efi`或新版`H2OUVE`
+   - 解锁后，请使用带有`DVMT64`字样的config，更名为`config.plist`并替换原有的`config.plist`
+
 
 
 ## What's not working / 不工作的硬件
@@ -39,21 +46,21 @@
 -  Intel Wireless AC9462/9560 CNVio 无线网卡
 -  SPI指纹
 -  摄像头 (AzureWave)
--  SAMSUNG PM981 NVMe SSD
+-  SAMSUNG PM981 NVMe SSD 
+   - 可使用全盘恢复法安装，不保证稳定性，建议更换
 
 ## Working with Small Issues / 小问题
-- Matebook 14 的机身HDMI输出端口，有待测试，欢迎反馈
 - 部分机器上出现`kernel_task`无故起飞 (AppleALC的问题)
    - 在出现这个问题时，**可以尝试通过合盖睡眠再唤醒**
 - 耳机孔麦克风输入不工作
-- 想到了再加
 
 
 ## TODOs after install / 在安装完之后需要做的事情
    1. 安装`ComboJack`实现耳机耳麦切换，改进电流声。
       - 在[这里](https://github.com/Heporis/ComboJack)下载由[Heporis](https://github.com/Heporis)制作的ComboJack.
-      - 终端运行 
-      > ComboJack_Installer/install.sh
+      - 终端运行下面路径的脚本
+         > ComboJack_Installer/install.sh
+   
 
    2. 触摸板找不到时，在终端运行
       > sudo kextcache -i /
@@ -62,8 +69,12 @@
    
    4. **由[chris111](https://github.com/chris1111)维护的Realtek USB 无线网卡驱动**：[Link](https://github.com/chris1111/Wireless-USB-Adapter/files/4301778/Wireless.USB.Adapter-V11.zip)
 
+   5. `VoodooPS2Controller`有自动关闭触摸板以防误触的功能。如果发现触摸板失效了，可以尝试按一下 `F11`
+
+   6. 安装的过程中可能需要一个USB鼠标。
+
 ## Download / 下载
-   请不要直接Clone整个仓库，而是下载打包好的最新Release
+   请不要直接Clone整个仓库，而是下载打包后的Release
    
    - [Download](https://github.com/Zero-zer0/Matebook_13_14_2020_Hackintosh_OpenCore/releases)
 
