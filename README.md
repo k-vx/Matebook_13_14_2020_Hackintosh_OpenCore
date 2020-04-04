@@ -39,7 +39,7 @@
 - [x] DP输出 
    - 4K 60Hz 需要解锁`DVMT Pre-allocated`至`64M`,使用`ru.efi`或新版`H2OUVE`
    - 解锁后，请使用带有`DVMT64`字样的config，更名为`config.plist`并替换原有的`config.plist`
-
+</br></br>
 
 
 ## What's not working / 不工作的硬件
@@ -49,11 +49,13 @@
 -  摄像头 (AzureWave)
 -  SAMSUNG PM981 NVMe SSD 
    - 可使用全盘恢复法安装，不保证稳定性，建议更换
+</br>
 
 ## Working with Small Issues / 小问题
 - 部分机器上出现`kernel_task`无故起飞 (AppleALC的问题)
    - 在出现这个问题时，**可以尝试通过合盖睡眠再唤醒**
 - 耳机孔麦克风输入不工作
+</br>
 
 
 ## TODOs after install / 在安装完之后需要做的事情
@@ -87,11 +89,13 @@
       - 选择开启HiDPI（**不要**注入EDID）
       - 图标自选
       - 自定义几个3:2的分辨率</br>如`1650*1100`, `1500x1000`, `1350x900`等等
+</br>
 
 ## Download / 下载
    请勿直接Clone整个仓库，而是下载打包后的Release
    
    - [Download](https://github.com/Zero-zer0/Matebook_13_14_2020_Hackintosh_OpenCore/releases)
+</br></br>
 
 ## ChangeLog
 #### 2020-Apr.-3
@@ -203,7 +207,7 @@
 
  </details>
 
-
+</br></br>
 
 
 ## Reward / 赞赏
