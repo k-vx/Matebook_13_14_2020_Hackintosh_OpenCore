@@ -3,7 +3,7 @@
 |  | 详细                                                                                                         |
 |:--------------:|:------------------------------------------------------------------------------------------------------------------:|
 |型号 | Huawei Matebook 13/14 **2020**|
-| CPU |    Intel Core i5 10210U/i7 10510U (Comet Lake) |
+| CPU |    Intel Core i5 10210U / i7 10510U (Comet Lake) |
 | GPU | Intel UHD620 </br> Nvidia MX250 |
 |RAM  |     8GB / 16GB LPDDR3|
 | 网卡  | Intel 9462AC / 9560AC CNVio <br>|
@@ -12,6 +12,7 @@
 |SSD | SAMSUNG PM981 <br> WDC PC SN730 </br> Toshiba XG6 |
 | LCD | 2160*1440|
 |SMBIOS | MacBookPro 15,4|
+| BIOS | 1.10 </br>(**目前请不要升级1.12,否则可能出现开机黑屏！**)|
 --------
 ### ⚠️由于我并没有机器，制作此配置仅仅出于兴趣。~~本人处于跑路状态~~，希望手上有机器的大佬能接手本仓库
 
@@ -83,25 +84,28 @@
          ```bash
          bash -c "$(curl -fsSL https://gitee.com/xoywuyue/one-key-hidpi/raw/master/hidpi.sh)"
          ```
-      - 选择开启HiDPI（不要注入EDID）
-      - 图标自选，保持默认即可
-      - 分辨率需要自定义几个3:2的分辨率</br>如 `1500x1000`, `1350x900`等等
+      - 选择开启HiDPI（**不要**注入EDID）
+      - 图标自选
+      - 自定义几个3:2的分辨率</br>如`1650*1100`, `1500x1000`, `1350x900`等等
 
 ## Download / 下载
-   请不要直接Clone整个仓库，而是下载打包后的Release
+   请勿直接Clone整个仓库，而是下载打包后的Release
    
    - [Download](https://github.com/Zero-zer0/Matebook_13_14_2020_Hackintosh_OpenCore/releases)
 
 ## ChangeLog
-<details>
-<summary>Show All</summary>
-
- #### 2020-Apr.-3
+#### 2020-Apr.-3
    - 升级`IntelBluetoothFirmware`: [link](https://github.com/zxystd/IntelBluetoothFirmware/releases/tag/1.0.3)
    - 合并一些ACPI表
    - 加入Matebook 13的电池修补SSDT， 并换用`ACPIBatteryManager`
    - 加入`VerbStub`实现手动耳机切换，以实现更好的音质，需要搭配[ComboJack](https://github.com/Heporis/ComboJack)
    - 使用[bat.bat](https://github.com/williambj1)编译的`VoodooI2C`+`VoodooInput`+`VoodooPS2Controller`
+   - 试验性修复Matebook 14的HDMI与HiDPI，但是据称在BIOS `1.12`下会出现**开机黑屏的情况**，**目前请不要升级BIOS**
+
+<details>
+<summary>Show All</summary>
+
+ 
 
  #### 2020-Mar.-17
    * 触摸更新
