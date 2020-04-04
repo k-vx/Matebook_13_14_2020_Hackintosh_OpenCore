@@ -34,9 +34,9 @@
 - [x] 睡眠
 - [x] NVRAM
 - [x] HDMI 输出
-   - Matebook 
+   - Matebook 14 2020自带HDMI接口为HDMI 1.4，最高仅支持4K 30Hz输出
 - [x] DP输出 
-   - 4k 60Hz 需要解锁`DVMT Pre-allocated`至`64M`,使用`ru.efi`或新版`H2OUVE`
+   - 4K 60Hz 需要解锁`DVMT Pre-allocated`至`64M`,使用`ru.efi`或新版`H2OUVE`
    - 解锁后，请使用带有`DVMT64`字样的config，更名为`config.plist`并替换原有的`config.plist`
 
 
