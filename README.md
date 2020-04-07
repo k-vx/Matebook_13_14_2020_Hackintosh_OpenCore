@@ -14,14 +14,14 @@
 |SMBIOS | MacBookPro 15,4|
 | BIOS | 1.10 </br>(**目前请不要升级1.12,否则可能出现开机黑屏！**)|
 --------
-### ⚠️由于我并没有机器，制作此配置仅仅出于兴趣。~~本人处于跑路状态~~，希望手上有机器的大佬能接手本仓库
-
-### ⚠️**不要为了安装macOS而购买这个机器！** 由于BIOS和网卡的限制，connectivity功能无法正常使用。需要笔记本整黑苹果请左转隔壁~~美帝良心想~~
+### ⚠️制作此配置仅仅出于兴趣，本人手上并没有此机器！
+### ⚠️欢迎有能力有机器的大佬接手本仓库
+### ⚠️**不要为了安装macOS而购买这个机器！** 由于BIOS和网卡的限制，大部分connectivity功能无法使用。
 
 
 ## What's working
 - [x] Intel UHD 620 核心显卡
-    - [x]  背光调节
+    - [x] 背光调节
     - [x] 背光快捷键
 - [x] USB
 - [x] 声卡(ALC256, layout-id=21)
@@ -29,8 +29,6 @@
    - [x] 耳机输出
    - [x] 机身麦克风
 - [x] 触摸板
-- [x] 触摸屏
-   - 仅Matebook 14启用，Matebook 13由于一些问题暂时禁用
 - [x] Intel 蓝牙
 - [x] 睡眠
 - [x] NVRAM
@@ -43,7 +41,7 @@
 
 
 ## What's not working / 不工作的硬件
--  Nvidia MX250
+-  Nvidia MX250 （已屏蔽）
 -  Intel Wireless AC9462/9560 CNVio 无线网卡
 -  SPI指纹
 -  摄像头 (AzureWave)
@@ -54,7 +52,14 @@
 ## Working with Small Issues / 小问题
 - 部分机器上出现`kernel_task`无故起飞 (AppleALC的问题)
    - 在出现这个问题时，**可以尝试通过合盖睡眠再唤醒**
+
+- 触摸屏
+   - ~~仅Matebook 14启用~~，Matebook 13 / 14由于一些问题暂时禁用
+
 - 耳机孔麦克风输入不工作
+
+- Type-C转VGA无法使用，猜测与`LSPCON`有关，建议拥抱数字输出，或尝试使用自带的HDMI口转VGA输出(issue [#3](https://github.com/Zero-zer0/Matebook_13_14_2020_Hackintosh_OpenCore/issues/3))</br> 没有条件进行调试，理解万岁。
+
 </br>
 
 
@@ -98,6 +103,12 @@
 </br></br>
 
 ## ChangeLog
+#### 2020-Apr.-7
+   - 升级一些kexts
+   - 尝试解决CPU变频失效的问题。
+
+
+
 #### 2020-Apr.-3
    - 升级`IntelBluetoothFirmware`: [link](https://github.com/zxystd/IntelBluetoothFirmware/releases/tag/1.0.3)
    - 合并一些ACPI表
