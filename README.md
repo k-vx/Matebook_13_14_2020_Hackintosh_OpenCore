@@ -4,7 +4,7 @@
 |:--------------:|:------------------------------------------------------------------------------------------------------------------:|
 |型号 | Huawei Matebook 13/14 **2020**|
 | CPU |    Intel Core i5 10210U / i7 10510U (Comet Lake) |
-| GPU | Intel UHD620 </br> Nvidia MX250 |
+| GPU | Intel UHD620 </br> Nvidia MX250 / MX350 |
 |RAM  |     8GB / 16GB LPDDR3|
 | 网卡  | Intel 9462AC / 9560AC CNVio <br>|
 | 触摸板/触摸屏|  ELAN962C </br> SYNA7813 (MB14) / ELAN224A (MB13)</br>  |
@@ -14,20 +14,18 @@
 |SMBIOS | MacBookPro 15,4|
 | BIOS | 1.10 </br>(**目前请不要升级1.12,否则可能出现开机黑屏！**)|
 --------
-### ⚠️制作此配置仅仅出于兴趣，本人手上并没有此机器！
+### ⚠️制作此配置仅仅出于兴趣
 ### ⚠️欢迎有能力有机器的大佬接手本仓库
-### ⚠️**不要为了安装macOS而购买这个机器！** 由于BIOS和网卡的限制，大部分connectivity功能无法使用。
-
 
 ## What's working
 - [x] Intel UHD 620 核心显卡
-    - [x] 背光调节
-    - [x] 背光快捷键
+- [x] 背光调节
+- [x] 背光快捷键
 - [x] USB
 - [x] 声卡(ALC256, layout-id=21)
-   - [x] 外放
-   - [x] 耳机输出
-   - [x] 机身麦克风
+- [x] 外放
+- [x] 耳机输出
+- [x] 机身麦克风
 - [x] 触摸板
 - [x] Intel 蓝牙
 - [x] 睡眠
@@ -36,13 +34,12 @@
    - Matebook 14 2020自带HDMI接口为HDMI 1.4，最高仅支持4K 30Hz输出
 - [x] DP输出 
    - 4K 60Hz 需要解锁`DVMT Pre-allocated`至`64M`,使用`ru.efi`或新版`H2OUVE`
-   - 解锁后，请使用带有`DVMT64`字样的config，更名为`config.plist`并替换原有的`config.plist`
 </br></br>
 
 
 ## What's not working / 不工作的硬件
 -  Nvidia MX250 （已屏蔽）
--  Intel Wireless AC9462/9560 CNVio 无线网卡
+-  Intel Wireless 9462/9560 AC CNVio 无线网卡
 -  SPI指纹
 -  摄像头 (AzureWave)
 -  SAMSUNG PM981 NVMe SSD 
@@ -54,16 +51,16 @@
    - 在出现这个问题时，**可以尝试通过合盖睡眠再唤醒**
 
 - 触摸屏
-   - ~~仅Matebook 14启用~~，Matebook 13 / 14由于一些问题暂时禁用
+   - 欢迎测试并提出issue (~~反正我也不会管~~)
 
-- 耳机孔麦克风输入不工作
+- 耳机孔麦克风输入不工作 (机身麦克风与耳麦输入共用节点)
 
 - Type-C转VGA无法使用，猜测与`LSPCON`有关，建议拥抱数字输出，或尝试使用自带的HDMI口转VGA输出(issue [#3](https://github.com/Zero-zer0/Matebook_13_14_2020_Hackintosh_OpenCore/issues/3))</br> 没有条件进行调试，理解万岁。
 
 </br>
 
 
-## TODOs after install / 在安装完之后需要做的事情
+## TODOs after install / 在安装完之后需要做的事
    1. 安装`ComboJack`实现耳机耳麦切换，改进电流声。
       - 在[这里](https://github.com/Heporis/ComboJack)下载由[Heporis](https://github.com/Heporis)制作的ComboJack.
       - 终端运行下面路径的脚本
@@ -75,39 +72,33 @@
    
    3. 如果你从旧版本的OpenCore转换过来，请`Clean NVRAM`或`Reset NVRAM`+使用EasyUEFI、Bootice等软件重新建立引导
    </br>
-   
    4. **由[chris111](https://github.com/chris1111)维护的Realtek USB 无线网卡驱动**：[Link](https://github.com/chris1111/Wireless-USB-Adapter/files/4301778/Wireless.USB.Adapter-V11.zip)
    </br>
-
    5. `VoodooPS2Controller`有自动关闭触摸板以防误触的功能。如果发现触摸板失效了，可以尝试按一下 `F11`
    </br>
-
    6. 安装的过程中可能需要一个USB鼠标。
    </br>
-
    7. 开启HiDPI
-      - 网络情况较好的情况下，直接使用[one-key-hidpi](https://github.com/xzhih/one-key-hidpi)
-      - 网络情况较差，或无法正常使用上述脚本的，可以考虑使用Gitee上的镜像(不保证最新)
-         ```bash
-         bash -c "$(curl -fsSL https://gitee.com/xoywuyue/one-key-hidpi/raw/master/hidpi.sh)"
-         ```
+      - 使用[one-key-hidpi](https://github.com/xzhih/one-key-hidpi)
       - 选择开启HiDPI（**不要**注入EDID）
       - 图标自选
       - 自定义几个3:2的分辨率</br>如`1650*1100`, `1500x1000`, `1350x900`等等
 </br>
 
 ## Download / 下载
-   请勿直接Clone整个仓库，而是下载打包后的Release
+   下载打包后的Release：
    
    - [Download](https://github.com/Zero-zer0/Matebook_13_14_2020_Hackintosh_OpenCore/releases)
 </br></br>
 
 ## ChangeLog
+#### 2020-Mar.-4
+   - 升级一些kext
+   - 启用触摸屏（待测试）
+
 #### 2020-Apr.-7
    - 升级一些kexts
    - 尝试解决CPU变频失效的问题。
-
-
 
 #### 2020-Apr.-3
    - 升级`IntelBluetoothFirmware`: [link](https://github.com/zxystd/IntelBluetoothFirmware/releases/tag/1.0.3)
@@ -120,7 +111,6 @@
 <details>
 <summary>Show All</summary>
 
- 
 
  #### 2020-Mar.-17
    * 触摸更新
@@ -218,10 +208,7 @@
 
  </details>
 
-</br></br>
-
-
-
+</br>
 
 
 ____________
