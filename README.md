@@ -15,7 +15,7 @@
 | BIOS | 1.10 </br>(**目前请不要升级1.12,否则可能出现开机黑屏！**)|
 --------
 ### ⚠️制作此配置仅仅出于兴趣
-### ⚠️欢迎有能力有机器的大佬接手本仓库
+### ⚠️欢迎接手本仓库
 
 ## What's working
 - [x] Intel UHD 620 核心显卡
@@ -34,7 +34,7 @@
    - Matebook 14 2020自带HDMI接口为HDMI 1.4，最高仅支持4K 30Hz输出
 - [x] DP输出 
    - 4K 60Hz 需要解锁`DVMT Pre-allocated`至`64M`,使用`ru.efi`或新版`H2OUVE`
-</br></br>
+</br>
 
 
 ## What's not working / 不工作的硬件
@@ -64,30 +64,34 @@
    1. 安装`ComboJack`实现耳机耳麦切换，改进电流声。
       - 在[这里](https://github.com/Heporis/ComboJack)下载由[Heporis](https://github.com/Heporis)制作的ComboJack.
       - 终端运行下面路径的脚本
+         
          > ComboJack_Installer/install.sh
-   
+
 
    2. 触摸板找不到时，在终端运行
+      
       > sudo kextcache -i /
    
-   3. 如果你从旧版本的OpenCore转换过来，请`Clean NVRAM`或`Reset NVRAM`+使用EasyUEFI、Bootice等软件重新建立引导
-   </br>
-   4. **由[chris111](https://github.com/chris1111)维护的Realtek USB 无线网卡驱动**：[Link](https://github.com/chris1111/Wireless-USB-Adapter/files/4301778/Wireless.USB.Adapter-V11.zip)
-   </br>
-   5. `VoodooPS2Controller`有自动关闭触摸板以防误触的功能。如果发现触摸板失效了，可以尝试按一下 `F11`
-   </br>
-   6. 安装的过程中可能需要一个USB鼠标。
-   </br>
+   3. 如果你从旧版本的OpenCore转换过来，请`Clean NVRAM`或`Reset NVRAM`+使用EasyUEFI、Bootice等软件重新建立引导  
+   
+      
+   4. **由[chris111](https://github.com/chris1111)维护的Realtek USB 无线网卡驱动**：[Link](https://github.com/chris1111/Wireless-USB-Adapter/files/4301778/Wireless.USB.Adapter-V11.zip)  
+
+
+   5. `VoodooPS2Controller`有自动关闭触摸板以防误触的功能。如果发现触摸板失效了，可以尝试按一下 `F11`  
+
+         
    7. 开启HiDPI
       - 使用[one-key-hidpi](https://github.com/xzhih/one-key-hidpi)
       - 选择开启HiDPI（**不要**注入EDID）
       - 图标自选
-      - 自定义几个3:2的分辨率</br>如`1650*1100`, `1500x1000`, `1350x900`等等
+      - 自定义几个3:2的分辨率</br>如`1650*1100`, `1500x1000`, `1350x900`等等  
+
 </br>
 
 ## Download / 下载
    下载打包后的Release：
-   
+
    - [Download](https://github.com/Zero-zer0/Matebook_13_14_2020_Hackintosh_OpenCore/releases)
 </br></br>
 
@@ -95,6 +99,11 @@
 #### 2020-Mar.-4
    - 升级一些kext
    - 启用触摸屏（待测试）
+
+
+
+<details>
+<summary>Show All</summary>
 
 #### 2020-Apr.-7
    - 升级一些kexts
@@ -108,17 +117,13 @@
    - 使用[bat.bat](https://github.com/williambj1)编译的`VoodooI2C`+`VoodooInput`+`VoodooPS2Controller`
    - 试验性修复Matebook 14的HDMI与HiDPI，但是据称在BIOS `1.12`下会出现**开机黑屏的情况**，**目前请不要升级BIOS**
 
-<details>
-<summary>Show All</summary>
-
-
  #### 2020-Mar.-17
    * 触摸更新
       * Matebook 13 使用`轮询`驱动触摸板，禁用触摸屏
       * Matebook 14 使用`GPIO中断`驱动触摸板，使用`轮询`驱动触摸屏
       * 嫌`GPIO`占用高可以用`SSDT-TPXX-Polling`以使用轮询的方式驱动触摸板，实测占用反而更低，只是顺滑程度略下降。
 
- 
+
  #### 2020-Mar.-15 闲得蛋疼测试
  * 增加触摸屏相关的SSDT，可以自行搭配以供折腾</br>
    
@@ -209,7 +214,6 @@
  </details>
 
 </br>
-
 
 ____________
  ## Credits
